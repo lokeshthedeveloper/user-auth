@@ -7,7 +7,7 @@
     <title>@yield('title', 'User Auth')</title>
      @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-  <body>
+  <body class="position-relative position-relative min-vh-100">
 
     <!-- Header -->
     <nav class="navbar navbar-dark bg-dark">
@@ -38,7 +38,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-3 mt-auto">
+    <footer class="bg-dark text-white py-3 mt-20 position-absolute w-full bottom-0 end-0">
       <div class="container text-center">
         &copy; {{ date('Y') }} User Auth. All rights reserved.
       </div>

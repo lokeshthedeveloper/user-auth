@@ -32,6 +32,7 @@ $(function () {
             data: {
                 name: $('#name').val(),
                 email: $('#email').val(),
+                password: $('#password').val(),
                 _token: $('meta[name="csrf-token"]').attr('content')
             },
             success: function (res) {
@@ -44,10 +45,12 @@ $(function () {
             error: function (err) {
                 $('.error-name').text('');
                 $('.error-email').text('');
+                 $('.error-password').text('');
                 if (err.status === 422) {
                     let errors = err.responseJSON.errors;
                     if (errors.name) $('.error-name').text(errors.name[0]);
                     if (errors.email) $('.error-email').text(errors.email[0]);
+                    if (errors.password) $('.error-password').text(errors.password[0]);
                 }
             }
         });

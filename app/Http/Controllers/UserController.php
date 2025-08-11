@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::latest()->paginate(2);
         return view('users.index', compact('users'));
     }
 
@@ -20,6 +20,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+             'password' => 'required|string|min:6',
         ]);
 
         if ($validator->fails()) {
@@ -46,7 +47,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
-             'password' => 'nullable|string|min:6',
+            'password' => 'nullable|string|min:6',
         ]);
 
         if ($validator->fails()) {

@@ -40,6 +40,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $users->links() }}
+    </div>
 </div>
 
 <!-- Modal -->
@@ -62,6 +65,11 @@
                 <label>Email</label>
                 <input type="email" id="email" class="form-control">
                 <div class="text-danger error-email"></div>
+            </div>
+             <div class="mb-3">
+                <label>Password</label>
+                <input type="password" id="password" class="form-control">
+                <div class="text-danger error-password"></div>
             </div>
         </div>
         <div class="modal-footer">
